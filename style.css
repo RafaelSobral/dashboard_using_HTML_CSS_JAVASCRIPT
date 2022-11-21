@@ -87,6 +87,7 @@ body {
   height: 60px;
   line-height: 65px;
   text-align: center;
+  font-size: 26px;
 }
 
 .navigation ul li a .title {
@@ -149,7 +150,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 -10px;
 }
 
 .toggle {
@@ -176,10 +177,10 @@ body {
 }
 
 .search label input {
-  width: 100%;
+  width: 80%;
   height: 40px;
   border-radius: 40px;
-  padding: 5px 20px;
+  padding: 0px 20px;
   padding-left: 35px;
   font-size: 18px;
   outline: none;
@@ -300,4 +301,207 @@ body {
   text-decoration: none;
   color: var(--whrite);
   border-radius: 6px;
+}
+
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.details table thead td {
+  font-weight: 600;
+}
+
+.details .recentOrders table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentOrders table tr:last-child {
+  border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+  background: var(--blue);
+  color: var(--whrite);
+}
+
+.details .recentOrders table tr td {
+  padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+  text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2) {
+  text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+}
+
+.status.delivered {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--whrite);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.pending {
+  padding: 2px 4px;
+  background: #f9ca3f;
+  color: var(--whrite);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.return {
+  padding: 2px 4px;
+  background: #f00;
+  color: var(--whrite);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.inprogress {
+  padding: 2px 4px;
+  background: #1795ce;
+  color: var(--whrite);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.recentCustomers {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  background: var(--whrite);
+  margin-right: 40px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.recentCustomers .imgBox {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.recentCustomers .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recentCustomers table tr:hover {
+  background: var(--blue);
+  color: var(--whrite);
+}
+
+.recentCustomers table tr td {
+  padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+
+.recentCustomers table tr td h4 span {
+  font-size: 14px;
+  color: var(--black2);
+}
+
+.recentCustomers table tr:hover {
+  background: var(--blue);
+  color: var(--whrite);
+}
+
+.recentCustomers table tr:hover td h4 span {
+  color: var(--whrite);
+}
+
+/*-- RESPONSIVE DESIGN --*/
+
+@media (max-width: 990px) {
+  .navigation {
+    left: -300px;
+  }
+  .navigation.active {
+    width: 282px;
+    left: 0;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .main.active {
+    left: 300px;
+  }
+  .cardFlex {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .recentOrders {
+    margin-right: 40px;
+  }
+  .cardFlex {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .recentCustomers {
+    overflow-x: auto;
+  }
+  .status.inprogress {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480) {
+  .cardflex {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cardHeader h2 {
+    font-size: 20px;
+  }
+  .user {
+    min-width: 40px;
+  }
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active {
+    width: 100%;
+    left: -0;
+  }
+  .toggle {
+    z-index: 10001;
+  }
+  .main .active .toggle {
+    position: fixed;
+    right: 0;
+    left: initial;
+    color: var(--whrite);
+  }
 }
